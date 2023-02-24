@@ -2,11 +2,8 @@ var builders = [],
     tools = [];
 
 function ARModel(name, dialogue) {
-    //we can make name link to the el id to find it on click?
     this.name = name;
     this.dialogue = dialogue;
-    
-
 }
 
 ARModel.prototype.speak = function() {
@@ -33,9 +30,9 @@ function initiateModels() {
     var buildersArray = [
       {
         name: 'king',
-        dialogue: 'Beep beep motherfucker',
-        tool: new Tool('ace', 'You have found King\'s ace!'),
-        successDialogue: 'Miauwpoeskonijn'
+        dialogue: 'It\'s short king spring, find my Ace!',
+        tool: new Tool('ace', 'You have found King\'s Ace! Return it peasant'),
+        successDialogue: 'Miauwpoeskonijn you found my Ace, here are 3 coins'
       }
     ];
 

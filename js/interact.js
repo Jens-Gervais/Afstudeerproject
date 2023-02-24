@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	const arSystem = sceneEl.systems["mindar-image-system"];
 	const exampleTarget = document.querySelector('.example-target');
 	const examplePlane = document.querySelector('.example-plane');
-  const exampleGltf = document.querySelector('.example-gltf')
+  	const exampleGltf = document.querySelector('.example-gltf')
 	// arReady event triggered when ready
 	sceneEl.addEventListener("arReady", (event) => {
 	  console.log("MindAR is ready")
@@ -63,3 +63,21 @@ function searchForBuilderTool(builder) {
     return tool.name === builder.tool.name;
   });
 };
+
+function hideSpeechBubbleIfNoMarker() {
+	var speechBubble = document.querySelector(".speech-bubble");
+	if (speechBubble.style.display === 'none' || !speechBubble.style.display) return;
+  
+	var shouldHide = true;
+	builders.forEach(function(builder){
+	  var builderMarker = document.querySelector("#" + builder.name + "-img");
+	  if (builderMarker && builderMarker.object3D.visible) shouldHide = false;
+	});
+  
+	tools.forEach(function(tool){
+	  var toolMarker = document.querySelector("#" + tool.name + "-img");
+	  if (toolMarker && toolMarker.object3D.visible) shouldHide = false;
+	});
+  
+	if (shouldHide) speechBubble.style.display = 'none';
+  };
