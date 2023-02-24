@@ -30,9 +30,9 @@ function initiateModels() {
     var buildersArray = [
       {
         name: 'king',
-        dialogue: 'It\'s short king spring, find the Joker!',
-        tool: new Tool('mind', 'You have found the Joker! Return the peasant'),
-        successDialogue: 'Miauwpoeskonijn you found him, here are 3 coins'
+        dialogue: 'It\'s short king spring, find my Ace!',
+        tool: new Tool('ace', 'You have found the Ace! Return it peasant'),
+        successDialogue: 'Miauwpoeskonijn you found it, here are 3 coins'
       }
     ];
 
