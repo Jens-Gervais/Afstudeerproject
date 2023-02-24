@@ -16,6 +16,7 @@
         <img id="ace" src="img/ace.jpg" />
         <img id="queen" src="img/queen.jpg" />
         <img id="joker" src="img/joker.jpg" />
+        <a-asset-item id="avatarModel" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.0/examples/image-tracking/assets/card-example/softmind/scene.gltf"></a-asset-item>
       </a-assets>
 
       <a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="far: ${customFields.libVersion}; objects: .clickable"></a-camera>
@@ -24,9 +25,13 @@
         <a-plane class="clickable example-builder" src="#king" position="0 0 0" height="1.5" width="1" rotation="0 0 0"></a-plane>
       </a-entity>
 
-      <a-entity id="joker-img" class="example-target" mindar-image-target="targetIndex: 1">
-        <a-plane class="clickable example-tool" src="#joker" position="0 0 0" height="1.5" width="1" rotation="0 0 0"></a-plane>
+      <a-entity id="mind-img" class="example-target" mindar-image-target="targetIndex: 1">
+        <a-gltf-model class="clickable example-tool" rotation="0 0 0 " position="0 0 0.1" scale="0.005 0.005 0.005" src="#avatarModel" animation="property: position; to: 0 0.1 0.1; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate">
       </a-entity>
+
+      <!-- <a-entity id="joker-img" class="example-target" mindar-image-target="targetIndex: 1">
+        <a-plane class="clickable example-tool" src="#joker" position="0 0 0" height="1.5" width="1" rotation="0 0 0"></a-plane>
+      </a-entity> -->
     </a-scene>
   </body>
 </html>

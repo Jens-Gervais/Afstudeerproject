@@ -1,3 +1,4 @@
+var interval_timer;
 document.addEventListener("DOMContentLoaded", function () {
 	const sceneEl = document.querySelector('a-scene');
 	const arSystem = sceneEl.systems["mindar-image-system"];
@@ -66,7 +67,7 @@ function searchForBuilderTool(builder) {
 	});
 };
 
-function hideSpeechBubbleIfNoMarker() {
+interval_timer = setInterval(function(){
 	console.log("hide speech method called")
 	var speechBubble = document.querySelector(".speech-bubble");
 	if (speechBubble.style.display === 'none' || !speechBubble.style.display) return;
@@ -83,6 +84,9 @@ function hideSpeechBubbleIfNoMarker() {
 	});
 
 	if (shouldHide) speechBubble.style.display = 'none';
+}, 5000);
 
-	setTimeout(hideSpeechBubbleIfNoMarker, 5000)
-};
+// function hideSpeechBubbleIfNoMarker() {
+	
+
+// };

@@ -31,7 +31,7 @@ function initiateModels() {
       {
         name: 'king',
         dialogue: 'It\'s short king spring, find the Joker!',
-        tool: new Tool('joker', 'You have found the Joker! Return the peasant'),
+        tool: new Tool('mind', 'You have found the Joker! Return the peasant'),
         successDialogue: 'Miauwpoeskonijn you found him, here are 3 coins'
       }
     ];
