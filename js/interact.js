@@ -2,8 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
 	const sceneEl = document.querySelector('a-scene');
 	const arSystem = sceneEl.systems["mindar-image-system"];
 	const exampleTarget = document.querySelector('.example-target');
-	const examplePlane = document.querySelector('.example-plane');
-	//const exampleGltf = document.querySelector('.example-gltf')
+	const exampleBuilder = document.querySelector('.example-builder');
+	const exampleTool = document.querySelector('.example-tool')
 	// arReady event triggered when ready
 	sceneEl.addEventListener("arReady", (event) => {
 		console.log("MindAR is ready")
@@ -21,8 +21,8 @@ document.addEventListener("DOMContentLoaded", function () {
 		console.log("target lost");
 	});
 	// detect click event
-	examplePlane.addEventListener("click", event => {
-		console.log("plane click");
+	exampleBuilder.addEventListener("click", event => {
+		console.log("builder click");
 		builders.forEach(function (builder) {
 			var builderElem = document.querySelector("#" + builder.name + "-img");
 			if (builderElem && builderElem.object3D.visible) {
@@ -33,18 +33,18 @@ document.addEventListener("DOMContentLoaded", function () {
 				}
 			}
 		})
-	});
+	})
 
-	// exampleGltf.addEventListener("click", event => {
-	// 	console.log("gltf click");
-	// 	tools.forEach(function (tool) {
-	// 		var toolMarker = document.querySelector("#" + tool.name + "-img");
-	// 		if (toolMarker && toolMarker.object3D.visible) {
-	// 			toggleSpeechBubble(tool.dialogue);
-	// 			if (!userState.hasBuilderTool(tool)) userState.addTool(tool);
-	// 		}
-	// 	});
-	// });
+	exampleTool.addEventListener("click", event => {
+		console.log("tool click");
+		tools.forEach(function (tool) {
+			var toolMarker = document.querySelector("#" + tool.name + "-img");
+			if (toolMarker && toolMarker.object3D.visible) {
+				toggleSpeechBubble(tool.dialogue);
+				if (!userState.hasBuilderTool(tool)) userState.addTool(tool);
+			}
+		});
+	});
 });
 
 
