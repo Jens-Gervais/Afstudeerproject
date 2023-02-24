@@ -1,8 +1,9 @@
 document.addEventListener("DOMContentLoaded", function() {
 	const sceneEl = document.querySelector('a-scene');
 	const arSystem = sceneEl.systems["mindar-image-system"];
-	const exampleTarget = document.querySelector('#example-target');
-	const examplePlane = document.querySelector('#example-plane');
+	const exampleTarget = document.querySelector('.example-target');
+	const examplePlane = document.querySelector('.example-plane');
+  const exampleGltf = document.querySelector('.example-gltf')
 	// arReady event triggered when ready
 	sceneEl.addEventListener("arReady", (event) => {
 	  console.log("MindAR is ready")
@@ -22,5 +23,8 @@ document.addEventListener("DOMContentLoaded", function() {
 	// detect click event
 	examplePlane.addEventListener("click", event => {
 	  console.log("plane click");
+	});
+  exampleGltf.addEventListener("click", event => {
+	  console.log("gltf click");
 	});
 });
