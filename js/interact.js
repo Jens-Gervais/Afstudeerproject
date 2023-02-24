@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", function () {
 	// arReady event triggered when ready
 	sceneEl.addEventListener("arReady", (event) => {
 		console.log("MindAR is ready")
-		hideSpeechBubbleIfNoMarker();
 	});
 	// arError event triggered when something went wrong. Mostly browser compatbility issue
 	sceneEl.addEventListener("arError", (event) => {
