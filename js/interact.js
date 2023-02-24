@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	// arReady event triggered when ready
 	sceneEl.addEventListener("arReady", (event) => {
 		console.log("MindAR is ready")
+		hideSpeechBubbleIfNoMarker();
 	});
 	// arError event triggered when something went wrong. Mostly browser compatbility issue
 	sceneEl.addEventListener("arError", (event) => {
@@ -65,20 +66,22 @@ function searchForBuilderTool(builder) {
 	});
 };
 
-// function hideSpeechBubbleIfNoMarker() {
-// 	var speechBubble = document.querySelector(".speech-bubble");
-// 	if (speechBubble.style.display === 'none' || !speechBubble.style.display) return;
+function hideSpeechBubbleIfNoMarker() {
+	var speechBubble = document.querySelector(".speech-bubble");
+	if (speechBubble.style.display === 'none' || !speechBubble.style.display) return;
 
-// 	var shouldHide = true;
-// 	builders.forEach(function (builder) {
-// 		var builderMarker = document.querySelector("#" + builder.name + "-img");
-// 		if (builderMarker && builderMarker.object3D.visible) shouldHide = false;
-// 	});
+	var shouldHide = true;
+	builders.forEach(function (builder) {
+		var builderMarker = document.querySelector("#" + builder.name + "-img");
+		if (builderMarker && builderMarker.object3D.visible) shouldHide = false;
+	});
 
-// 	tools.forEach(function (tool) {
-// 		var toolMarker = document.querySelector("#" + tool.name + "-img");
-// 		if (toolMarker && toolMarker.object3D.visible) shouldHide = false;
-// 	});
+	tools.forEach(function (tool) {
+		var toolMarker = document.querySelector("#" + tool.name + "-img");
+		if (toolMarker && toolMarker.object3D.visible) shouldHide = false;
+	});
 
-// 	if (shouldHide) speechBubble.style.display = 'none';
-// };
+	if (shouldHide) speechBubble.style.display = 'none';
+
+	setTimeout(hideSpeechBubbleIfNoMarker, 5000)
+};
