@@ -39,8 +39,8 @@ document.addEventListener("DOMContentLoaded", function () {
 	exampleTool.addEventListener("click", event => {
 		console.log("tool click");
 		tools.forEach(function (tool) {
-			var toolMarker = document.querySelector("#" + tool.name + "-img");
-			if (toolMarker && toolMarker.object3D.visible) {
+			var toolElem = document.querySelector("#" + tool.name + "-img");
+			if (toolElem && toolElem.object3D.visible) {
 				toggleSpeechBubble(tool.dialogue);
 				if (!userState.hasBuilderTool(tool)) userState.addTool(tool);
 			}
@@ -67,6 +67,7 @@ function searchForBuilderTool(builder) {
 };
 
 function hideSpeechBubbleIfNoMarker() {
+	console.log("hide speech method called")
 	var speechBubble = document.querySelector(".speech-bubble");
 	if (speechBubble.style.display === 'none' || !speechBubble.style.display) return;
 
