@@ -32,9 +32,9 @@ Tool.prototype = Object.create(ARModel.prototype);
 function initiateModels() {
     var buildersArray = [
       {
-        name: 'queen',
+        name: 'king',
         dialogue: 'Beep beep motherfucker',
-        tool: new Tool('hammer', 'You have found Pyra\'s hammer!'),
+        tool: new Tool('ace', 'You have found King\'s ace!'),
         successDialogue: 'Miauwpoeskonijn'
       }
     ];

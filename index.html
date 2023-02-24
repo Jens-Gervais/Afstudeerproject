@@ -17,11 +17,11 @@
 
       <a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="far: ${customFields.libVersion}; objects: .clickable"></a-camera>
       
-      <a-entity class="example-target" mindar-image-target="targetIndex: 0">
+      <a-entity id="king-img" class="example-target" mindar-image-target="targetIndex: 0">
         <a-plane class="clickable example-plane" src="#queen" position="0 0 0" height="1.5" width="1" rotation="0 0 0"></a-plane>
       </a-entity>
-      
-      <a-entity class="example-target" mindar-image-target="targetIndex: 1">
+
+      <a-entity id="ace-img" class="example-target" mindar-image-target="targetIndex: 1">
         <a-gltf-model class="clickable example-gltf" rotation="0 0 0 " position="0 0 0.1" scale="0.005 0.005 0.005" src="#avatarModel" animation="property: position; to: 0 0.1 0.1; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate">
       </a-entity>
     </a-scene>

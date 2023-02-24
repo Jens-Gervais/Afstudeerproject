@@ -23,8 +23,43 @@ document.addEventListener("DOMContentLoaded", function() {
 	// detect click event
 	examplePlane.addEventListener("click", event => {
 	  console.log("plane click");
+    builders.forEach(function(builder) {
+      var builderElem = document.querySelector("#" + builder.name + "-img");
+      if (builderElem && builderElem.object3D.visible) {
+        if (searchForBuilderTool(builder)){
+          toggleSpeechBubble(builder.successDialogue);
+        } else {
+          toggleSpeechBubble(builder.dialogue);
+        }
+      }
+    })
 	});
+  
   exampleGltf.addEventListener("click", event => {
 	  console.log("gltf click");
+    tools.forEach(function(tool){
+      var toolMarker = document.querySelector("#" + tool.name + "-img");
+      if (toolMarker && toolMarker.object3D.visible) {
+        toggleSpeechBubble(tool.dialogue);
+        if (!userState.hasBuilderTool(tool)) userState.addTool(tool);
+      }
+    });
 	});
 });
+
+
+function toggleSpeechBubble(dialogue) {
+  var speechBubble = document.querySelector(".speech-bubble");
+	if (speechBubble.style.display === 'none' || !speechBubble.style.display) {
+		speechBubble.innerHTML = dialogue;
+		speechBubble.style.display = 'block';
+	} else {
+		speechBubble.style.display = 'none';
+	}
+};
+
+function searchForBuilderTool(builder) {
+  return userState.tools.some(function(tool) {
+    return tool.name === builder.tool.name;
+  });
+};
