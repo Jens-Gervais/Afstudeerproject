@@ -4,7 +4,6 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
-  <script src="https://raw.githack.com/AR-js-org/AR.js/master/three.js/build/ar-threex.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.0/dist/mindar-image-aframe.prod.js"></script>
   <script src="js/models.js"></script>
   <script src="js/userState.js"></script>
@@ -18,24 +17,19 @@
         <img id="queen" src="img/queen.jpg" />
         <img id="joker" src="img/joker.jpg" />
         <a-asset-item id="avatarModel" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.0/examples/image-tracking/assets/card-example/softmind/scene.gltf"></a-asset-item>
+        <a-asset-item id="skull" src="skull_gltf/scene.gltf"></a-asset-item>
+        <a-asset-item id="knight" src="knight_gltf/scene.gltf"></a-asset-item>
       </a-assets>
 
       <a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="far: ${customFields.libVersion}; objects: .clickable"></a-camera>
-      
-      <a-marker class="example-target" id="red-img" type="pattern" url="markers/red.patt">
-        <a-plane id="king" class="clickable example-builder" src="#king" position="0 0 0" height="1.5" width="1" rotation="0 0 0"></a-plane>
-      </a-marker>
-      <a-marker class="example-target" id="blue-img" type="pattern" url="markers/blue.patt">
-        <a-plane id="joker" class="clickable example-tool" src="#joker" position="0 0 0" height="1.5" width="1" rotation="0 0 0"></a-plane>
-      </a-marker>
 
-      <!-- <a-entity id="king-img" class="example-target" mindar-image-target="targetIndex: 0">
-        <a-plane id="king" class="clickable example-builder" src="#king" position="0 0 0" height="1.5" width="1" rotation="0 0 0"></a-plane>
+      <a-entity id="knight-img" class="example-target" mindar-image-target="targetIndex: 0">
+        <a-gltf-model class="clickable example-tool" rotation="0 0 0 " position="0 0 0.1" scale="0.005 0.005 0.005" src="#knight" animation="property: position; to: 0 0.1 0.1; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate">
       </a-entity>
 
-      <a-entity id="ace-img" class="example-target" mindar-image-target="targetIndex: 1">
-        <a-gltf-model class="clickable example-tool" rotation="0 0 0 " position="0 0 0.1" scale="0.005 0.005 0.005" src="#avatarModel" animation="property: position; to: 0 0.1 0.1; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate">
-      </a-entity> -->
+      <a-entity id="skull-img" class="example-target" mindar-image-target="targetIndex: 1">
+        <a-gltf-model class="clickable example-tool" rotation="0 0 0 " position="0 0 0.1" scale="0.005 0.005 0.005" src="#skull" animation="property: position; to: 0 0.1 0.1; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate">
+      </a-entity>
 
       <!-- <a-entity id="joker-img" class="example-target" mindar-image-target="targetIndex: 1">
         <a-plane class="clickable example-tool" src="#joker" position="0 0 0" height="1.5" width="1" rotation="0 0 0"></a-plane>
