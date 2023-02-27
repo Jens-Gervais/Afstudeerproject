@@ -11,11 +11,13 @@
   <script src="js/interact.js"></script>
   <body style="overflow: hidden;">
     <div class='speech-bubble'></div>
-    <a-scene embedded arjs cursor="rayOrigin: mouse" accepts-clicks>
+    <a-scene accepts-clicks>
       <a-assets>
         <img id="red" src="markers/red-marker.png" />
         <img id="blue" src="markers/blue-marker.png" />
       </a-assets>
+
+      <a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="far: ${customFields.libVersion}; objects: .clickable"></a-camera>
 
       <a-marker id="red-marker" type="pattern" url="markers/red.patt">
         <a-plane id="red" class="clickable example-builder" src="#red" position="0 0 0" height="1.5" width="1" rotation="0 0 0"></a-plane>
@@ -25,7 +27,6 @@
         <a-plane id="blue" class="clickable example-builder" src="#blue" position="0 0 0" height="1.5" width="1" rotation="0 0 0"></a-plane>
       </a-marker>
 
-      <a-entity camera></a-entity>
     </a-scene>
 
     <!-- <a-scene mindar-image="imageTargetSrc: img/targets_king_ace.mind;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
