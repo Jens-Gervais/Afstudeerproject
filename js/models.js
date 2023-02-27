@@ -29,9 +29,9 @@ Tool.prototype = Object.create(ARModel.prototype);
 function initiateModels() {
     var buildersArray = [
       {
-        name: 'king',
+        name: 'red',
         dialogue: 'It\'s short king spring, find my Ace!',
-        tool: new Tool('ace', 'You have found the Ace! Return it peasant'),
+        tool: new Tool('blue', 'You have found the Ace! Return it peasant'),
         successDialogue: 'Miauwpoeskonijn you found it, here are 3 coins'
       }
     ];
