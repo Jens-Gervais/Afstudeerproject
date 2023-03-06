@@ -3,8 +3,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const sceneEl = document.querySelector('a-scene');
     const arSystem = sceneEl.systems["mindar-image-system"];
     const exampleTarget = document.querySelector('.example-target');
+    //    const exampleTargetTool = document.querySelector('.example-target-tool');
     const exampleBuilder = document.querySelector('.example-builder');
-    const exampleTool = document.querySelector('.example-tool')
+    const exampleTool = document.querySelector('.example-tool');
+    let health = document.getElementById("health");
+
     // arReady event triggered when ready
     sceneEl.addEventListener("arReady", (event) => {
         console.log("MindAR is ready")
@@ -21,6 +24,17 @@ document.addEventListener("DOMContentLoaded", function () {
     exampleTarget.addEventListener("targetLost", event => {
         console.log("target lost");
     });
+    //    //detect tool target found
+    //    exampleTargetTool.addEventListener("targetFound", event => {
+    //        console.log("Tool target found");
+    //        healthContainer.style.display = 'block';
+    //    });
+    //    // detect tool target lost
+    //    exampleTargetTool.addEventListener("targetLost", event => {
+    //        console.log("Tool target lost");
+    //        healthContainer.style.display = 'none';
+    //    });
+
     // detect click event builder
     exampleBuilder.addEventListener("click", event => {
         console.log("builder click");
@@ -43,8 +57,17 @@ document.addEventListener("DOMContentLoaded", function () {
         tools.forEach(function (tool) {
             var toolElem = document.querySelector("#" + tool.name + "-img");
             if (toolElem && toolElem.object3D.visible) {
-                toggleSpeechBubble(tool.dialogue);
-                if (!userState.hasBuilderTool(tool)) userState.addTool(tool);
+                tool.clickCount++
+                if (tool.clickCount <= 2) {
+                    toggleSpeechBubble(tool.dialogue);
+                } else if (tool.clickCount >= 2 && tool.clickCount <= 11) {
+                    updateHealth(tool);
+                    health.style.display = 'block';
+                } else {
+                    health.style.display = 'none';
+                    toggleSpeechBubble(tool.successDialogue);
+                    if (!userState.hasBuilderTool(tool)) userState.addTool(tool);
+                }
             }
         });
     });
@@ -69,7 +92,6 @@ function searchForBuilderTool(builder) {
 };
 
 interval_timer = setInterval(function () {
-    console.log("hide speech method called")
     var speechBubble = document.querySelector(".speech-bubble");
     if (speechBubble.style.display === 'none' || !speechBubble.style.display) return;
 
@@ -95,7 +117,13 @@ function updateCoins(tool) {
     var coinsBubble = document.querySelector("#coins");
     coinsBubble.innerHTML = coins;
 
-    var progressBar = document.querySelector("#bar");
+    var progressBar = document.querySelector("#progress");
     progressBar.ariaValueNow = coins;
     progressBar.style.width = (coins / progressBar.ariaValueMax) * 100 + "%";
 };
+
+function updateHealth(tool) {
+    console.log("Updating health");
+    let health = document.getElementById("health")
+    health.value--
+}

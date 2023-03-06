@@ -1,10 +1,11 @@
 <html>
 
-    <head>
+<head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 
 </head>
 <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
@@ -27,7 +28,7 @@
                             </div>
                         </div>
                         <div class="progress mt-1 " data-height="8" style="height: 8px;">
-                            <div id="bar" class="progress-bar l-bg-cyan" role="progressbar" data-width="25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="10"></div>
+                            <div id="progress" class="progress-bar l-bg-cyan" role="progressbar" data-width="25%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="10" style="width: 0%"></div>
                         </div>
                     </div>
                 </div>
@@ -53,20 +54,27 @@
             <a-entity id="king-img" class="example-target" mindar-image-target="targetIndex: 0">
                 <a-plane class="clickable example-tool" src="#king" position="0 0 0" height="1.5" width="1" rotation="0 0 0"></a-plane>
             </a-entity>
-    -->
+        -->
 
         <!--
             <a-entity id="skull-img" class="example-target" mindar-image-target="targetIndex: 1">
                 <a-gltf-model class="clickable example-tool" rotation="0 0 0 " position="0 0 0.1" scale="0.10 0.10 0.10" src="#skull" animation="property: position; to: 0 0.1 0.1; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate">
             </a-entity>
-    -->
+        -->
 
-        <a-entity id="joker-img" class="example-target" mindar-image-target="targetIndex: 1">
-            <a-gltf-model class="clickable example-tool" rotation="0 0 0 " position="0 0 0.1" scale="0.10 0.10 0.10" src="#skull" animation="property: position; to: 0 0.1 0.1; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate">
+        <a-entity id="joker-img" class="example-target-tool" mindar-image-target="targetIndex: 1">
+            <!--
+            <div id="health-container" class="progress mt-1 " data-height="8" style="height: 8px; display: none">
+                <div id="health" class="progress-bar l-bg-cyan" role="progressbar" data-width="25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="10" style="width: 0%"></div>
+            </div>
+-->
+
+            <progress class="progress-bar bg-success" style="display: none" id="health" value="10" max="10"></progress>
+            <a-gltf-model class="clickable example-tool" rotation="0 0 0 " position="0 0 0.1" scale="0.10 0.10 0.10" src="#skull" animation="property: position; to: 0 0.1 0.1; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate" gltf-model="">
+            </a-gltf-model>
         </a-entity>
 
     </a-scene>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <script src="js/models.js"></script>
     <script src="js/userState.js"></script>

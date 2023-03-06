@@ -1,4 +1,4 @@
-```
+``
 <a-entity id="king-img" class="example-target" mindar-image-target="targetIndex:  0">
   <a-plane id="king" class="clickable example-builder" src="#king" position="0 0 0" height="1.5" width="1" rotation="0 0 0"></a-plane>
 </a-entity>
