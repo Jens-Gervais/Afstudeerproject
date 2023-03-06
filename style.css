@@ -1,32 +1,33 @@
 .speech-bubble {
-	position: absolute;
-	width: 80%;
-	margin: 0 auto;
-	bottom: 50px;
-	right: 10px;
-	left: 10px;
+    position: absolute;
+    width: 80%;
+    margin: 0 auto;
+    bottom: 50px;
+    right: 10px;
+    left: 10px;
     min-height: 20%;
-	background: #650101;
-	color: rgb(255, 255, 255);
-	font-size: 28px;
+    background: linear-gradient(to right, #a86008, #ffba56) !important;
+    color: rgb(255, 255, 255);
+    font-size: 28px;
     border-radius: .4em;
-	padding: 20px;
+    padding: 20px;
     display: none;
 }
 
 .speech-bubble:after {
-	content: '';
-	position: absolute;
-	bottom: 0;
-	left: 50%;
-	width: 0;
-	height: 0;
-	border: 50px solid transparent;
-	border-top-color: #532323;
-	border-bottom: 0;
-	border-left: 0;
-	margin-left: -50px;
-	margin-bottom: -50px;
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: 50px solid transparent;
+    border-top-color: #ffba56;
+    border-bottom: 0;
+    border-left: 0;
+    margin-left: -50px;
+    margin-bottom: -50px;
+    z-index: 5;
 }
 
 #arjsDebugUIContainer {
@@ -34,5 +35,41 @@
 }
 
 .a-enter-vr {
-	display: none;
+    display: none;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    border: none;
+    position: relative;
+
+}
+
+.l-bg-orange-dark {
+    background: linear-gradient(to right, #a86008, #ffba56) !important;
+    color: #fff;
+}
+
+.card .card-statistic-3 .card-icon-large .fas,
+.card .card-statistic-3 .card-icon-large .far,
+.card .card-statistic-3 .card-icon-large .fab,
+.card .card-statistic-3 .card-icon-large .fal {
+    font-size: 110px;
+}
+
+.card .card-statistic-3 .card-icon {
+    text-align: center;
+    line-height: 50px;
+    margin-right: 10px;
+    color: #000;
+    position: absolute;
+    right: -5px;
+    top: 2px;
+    opacity: 0.1;
+}
+
+.l-bg-cyan {
+    background: linear-gradient(135deg, #289cf5, #84c0ec) !important;
+    color: #fff;
 }

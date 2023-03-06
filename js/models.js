@@ -6,8 +6,8 @@ function ARModel(name, dialogue) {
     this.dialogue = dialogue;
 }
 
-ARModel.prototype.speak = function() {
-    return this.dialogue;   
+ARModel.prototype.speak = function () {
+    return this.dialogue;
 }
 
 //Builder model
@@ -20,23 +20,25 @@ function Builder(name, dialogue, tool, successDialogue) {
 Builder.prototype = Object.create(ARModel.prototype);
 
 //Tool model
-function Tool(name, dialogue) {
+function Tool(name, dialogue, reward, rewarded) {
     ARModel.call(this, name, dialogue);
+    this.reward = reward;
+    this.rewarded = false;
 }
 
 Tool.prototype = Object.create(ARModel.prototype);
 
 function initiateModels() {
     var buildersArray = [
-      {
-        name: 'knight',
-        dialogue: 'It\'s short king spring, find my Ace!',
-        tool: new Tool('skull', 'You have found the Ace! Return it peasant'),
-        successDialogue: 'Miauwpoeskonijn you found it, here are 3 coins'
-      }
+        {
+            name: 'king',
+            dialogue: 'The joker stole my artifact, find him and bring it back!',
+            tool: new Tool('joker', 'You have found the skull artifact! Return it to the King!', 5),
+            successDialogue: 'Thank you! Here are 5 coins.',
+        }
     ];
 
-    buildersArray.forEach(function(builder){
+    buildersArray.forEach(function (builder) {
         builders.push(new Builder(builder.name, builder.dialogue, builder.tool, builder.successDialogue));
         if (builder.tool) tools.push(builder.tool);
     });
