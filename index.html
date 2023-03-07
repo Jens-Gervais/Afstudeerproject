@@ -36,10 +36,8 @@
         </div>
     </div>
     <div class='speech-bubble'></div>
-    <a-scene mindar-image="imageTargetSrc: img/targets_king_joker.mind;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+    <a-scene mindar-image="imageTargetSrc: img/targets_ridder_joker.mind;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
         <a-assets>
-            <img id="kingimg" src="img/king.jpg" />
-            <img id="jokerimg" src="img/joker.jpg" />
             <a-asset-item id="king" src="chess_piece_king/scene.gltf" />
             <a-asset-item id="skull" src="skull_gltf/scene.gltf"></a-asset-item>
         </a-assets>
@@ -63,12 +61,6 @@
         -->
 
         <a-entity id="joker-img" class="example-target-tool" mindar-image-target="targetIndex: 1">
-            <!--
-            <div id="health-container" class="progress mt-1 " data-height="8" style="height: 8px; display: none">
-                <div id="health" class="progress-bar l-bg-cyan" role="progressbar" data-width="25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="10" style="width: 0%"></div>
-            </div>
--->
-
             <progress class="progress-bar bg-success" style="display: none" id="health" value="10" max="10"></progress>
             <a-gltf-model class="clickable example-tool" rotation="0 0 0 " position="0 0 0.1" scale="0.10 0.10 0.10" src="#skull" animation="property: position; to: 0 0.1 0.1; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate" gltf-model="">
             </a-gltf-model>
@@ -79,4 +71,6 @@
     <script src="js/models.js"></script>
     <script src="js/userState.js"></script>
     <script src="js/interact.js"></script>
-</body></html>
+</body>
+
+</html>
